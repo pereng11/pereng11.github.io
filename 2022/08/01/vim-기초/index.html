@@ -20,29 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pereng11.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="깃 사용 전략upstream 구분 내보내는 레포는 내 레포, 받아오는 레포는 팀장(선임, 사수 등) 레포로 설정하여사용 로컬 작업 결과를 내 레포에 push 팀장은 각 팀원의 결과를 본인 레포에 머지 공유 코드를 받아올 때는 팀장 레포에서 fetch&#x2F;pull 팀장 레포로의 push는 막아두고 사용 git remote set-url upstream.">
+    <meta name="description" content="vimmodeinsert 키가 일반 키보드처럼 텍스트 입출력으로 동작  normal 가장 중심이 되는 mode esc 키로 normal mode 진입 가능 키 하나하나가 명령어로 동작  command normal mode에서 shift + ; 으로 진입 w (write) 저장 q (quit) 나가기 변경사항 있으면 경고 띄워줌 ! (override) 이용해">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 사용 전략">
-<meta property="og:url" content="https://pereng11.github.io/2022/08/01/220801_git/index.html">
+<meta property="og:title" content="vim 기초">
+<meta property="og:url" content="https://pereng11.github.io/2022/08/01/vim-%EA%B8%B0%EC%B4%88/index.html">
 <meta property="og:site_name" content="Front-end Developer TIL">
-<meta property="og:description" content="깃 사용 전략upstream 구분 내보내는 레포는 내 레포, 받아오는 레포는 팀장(선임, 사수 등) 레포로 설정하여사용 로컬 작업 결과를 내 레포에 push 팀장은 각 팀원의 결과를 본인 레포에 머지 공유 코드를 받아올 때는 팀장 레포에서 fetch&#x2F;pull 팀장 레포로의 push는 막아두고 사용 git remote set-url upstream.">
+<meta property="og:description" content="vimmodeinsert 키가 일반 키보드처럼 텍스트 입출력으로 동작  normal 가장 중심이 되는 mode esc 키로 normal mode 진입 가능 키 하나하나가 명령어로 동작  command normal mode에서 shift + ; 으로 진입 w (write) 저장 q (quit) 나가기 변경사항 있으면 경고 띄워줌 ! (override) 이용해">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-01T07:17:32.000Z">
-<meta property="article:modified_time" content="2022-08-01T08:18:27.981Z">
+<meta property="article:modified_time" content="2022-08-01T08:21:15.043Z">
 <meta property="article:author" content="Jaeyeong Son">
-<meta property="article:tag" content="git">
 <meta property="article:tag" content="cli">
+<meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://pereng11.github.io/2022/08/01/220801_git/">
+<link rel="canonical" href="https://pereng11.github.io/2022/08/01/vim-%EA%B8%B0%EC%B4%88/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pereng11.github.io/2022/08/01/220801_git/","path":"2022/08/01/220801_git/","title":"git 사용 전략"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pereng11.github.io/2022/08/01/vim-%EA%B8%B0%EC%B4%88/","path":"2022/08/01/vim-기초/","title":"vim 기초"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>git 사용 전략 | Front-end Developer TIL</title>
+<title>vim 기초 | Front-end Developer TIL</title>
   
 
 
@@ -110,7 +110,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B9%83-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5"><span class="nav-number">1.</span> <span class="nav-text">깃 사용 전략</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#upstream-%EA%B5%AC%EB%B6%84"><span class="nav-number">1.1.</span> <span class="nav-text">upstream 구분</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stage%EC%9D%98-%EC%97%AD%ED%95%A0"><span class="nav-number">1.2.</span> <span class="nav-text">stage의 역할</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98"><span class="nav-number">1.3.</span> <span class="nav-text">커밋 컨벤션</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#README-md-%EC%BB%A8%EB%B2%A4%EC%85%98"><span class="nav-number">1.4.</span> <span class="nav-text">README.md 컨벤션</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore"><span class="nav-number">1.5.</span> <span class="nav-text">gitignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push"><span class="nav-number">1.6.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#license"><span class="nav-number">1.7.</span> <span class="nav-text">license</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim"><span class="nav-number">1.</span> <span class="nav-text">vim</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mode"><span class="nav-number">1.1.</span> <span class="nav-text">mode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">1.1.1.</span> <span class="nav-text">insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#normal"><span class="nav-number">1.1.2.</span> <span class="nav-text">normal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#command"><span class="nav-number">1.1.3.</span> <span class="nav-text">command</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -167,7 +167,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://pereng11.github.io/2022/08/01/220801_git/">
+    <link itemprop="mainEntityOfPage" href="https://pereng11.github.io/2022/08/01/vim-%EA%B8%B0%EC%B4%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,12 +180,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="git 사용 전략 | Front-end Developer TIL">
+      <meta itemprop="name" content="vim 기초 | Front-end Developer TIL">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          git 사용 전략
+          vim 기초
         </h1>
 
         <div class="post-meta-container">
@@ -197,7 +197,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-08-01 16:17:32 / Modified: 17:18:27" itemprop="dateCreated datePublished" datetime="2022-08-01T16:17:32+09:00">2022-08-01</time>
+      <time title="Created: 2022-08-01 16:17:32 / Modified: 17:21:15" itemprop="dateCreated datePublished" datetime="2022-08-01T16:17:32+09:00">2022-08-01</time>
     </span>
 
   
@@ -210,63 +210,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="깃-사용-전략"><a href="#깃-사용-전략" class="headerlink" title="깃 사용 전략"></a>깃 사용 전략</h1><h2 id="upstream-구분"><a href="#upstream-구분" class="headerlink" title="upstream 구분"></a>upstream 구분</h2><ul>
-<li>내보내는 레포는 내 레포, 받아오는 레포는 팀장(선임, 사수 등) 레포로 설정하여사<br>용<ul>
-<li>로컬 작업 결과를 내 레포에 push</li>
-<li>팀장은 각 팀원의 결과를 본인 레포에 머지</li>
-<li>공유 코드를 받아올 때는 팀장 레포에서 fetch&#x2F;pull</li>
-<li>팀장 레포로의 push는 막아두고 사용<ul>
-<li>git remote set-url upstream.push —no-push</li>
+        <h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><h2 id="mode"><a href="#mode" class="headerlink" title="mode"></a>mode</h2><h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><ul>
+<li>키가 일반 키보드처럼 텍스트 입출력으로 동작</li>
+</ul>
+<h3 id="normal"><a href="#normal" class="headerlink" title="normal"></a>normal</h3><ul>
+<li>가장 중심이 되는 mode</li>
+<li>esc 키로 normal mode 진입 가능</li>
+<li>키 하나하나가 명령어로 동작</li>
+</ul>
+<h3 id="command"><a href="#command" class="headerlink" title="command"></a>command</h3><ul>
+<li>normal mode에서 <code>shift + ;</code> 으로 진입<ul>
+<li><code>w</code> (write) 저장</li>
+<li><code>q</code> (quit) 나가기<ul>
+<li>변경사항 있으면 경고 띄워줌</li>
+<li><code>!</code> (override) 이용해서 저장 없이 나갈 수 있음<ul>
+<li>뭔가 잘못됐다 싶으면 꼭 <code>q!</code>로 탈출할 것</li>
+<li>터미널 그냥 종료하지 않기</li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-<h2 id="stage의-역할"><a href="#stage의-역할" class="headerlink" title="stage의 역할"></a>stage의 역할</h2><ul>
-<li>작업 단위를 구분하기 위한 임시공간<ul>
-<li>커밋 기록이 섞이면 안되는 파일이나 내용을 햐</li>
-</ul>
-</li>
-</ul>
-<h2 id="커밋-컨벤션"><a href="#커밋-컨벤션" class="headerlink" title="커밋 컨벤션"></a>커밋 컨벤션</h2><ul>
-<li>오픈소스 기여할 때는 영어를 사용하는 것이 필수</li>
-<li>그 외에도 가능하면 영어로 사용할 것</li>
-</ul>
-<h2 id="README-md-컨벤션"><a href="#README-md-컨벤션" class="headerlink" title="README.md 컨벤션"></a><a target="_blank" rel="noopener" href="http://readme.md/">README.md</a> 컨벤션</h2><ul>
-<li>제목 아래 서비스 한 줄 요약 필수</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/ulgoon/connect-to-git/blob/main/handouts/git(1%2C2).md">https://github.com/ulgoon/connect-to-git/blob/main/handouts/git(1%2C2).md</a><br>햐</li>
-</ul>
-<h2 id="gitignore"><a href="#gitignore" class="headerlink" title="gitignore"></a>gitignore</h2><ul>
-<li>실행 환경을 고려한 gitignore 파일 작성 도우미<ul>
-<li><a target="_blank" rel="noopener" href="https://www.toptal.com/developers/gitignore/">https://www.toptal.com/developers/gitignore/</a><ul>
-<li>운영체제, 에디터, 언어, 프레임워크 등 포함</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>DS_Store &#x2F; thumbs.db<ul>
-<li>맥과 윈도우의 캐시 파일. 깃헙에 올라가면 멋없음</li>
-</ul>
-</li>
-</ul>
-<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><ul>
-<li>push 가능한 자주 하지 말 것<ul>
-<li>실수 되돌리기 어려움</li>
-</ul>
-</li>
-</ul>
-<h2 id="license"><a href="#license" class="headerlink" title="license"></a>license</h2><ul>
-<li>오픈 소스 작업 시 특히 중요<ul>
-<li>사용자에게 주는 신뢰감</li>
-<li>저작권 이슈</li>
-</ul>
-</li>
-<li>GPL 라이센스는 특히 조심해야 함<ul>
-<li>다른 라이센스를 덮어씌움<ul>
-<li>GPL 라이센스인 라이브러리를 사용할 경우 프로젝트 전체가 GPL 라이센스를따라<br>야 함</li>
-</ul>
-</li>
-<li>최근 한글과 컴퓨터에서 PDF 내보내기 기능에 GPL 라이센스 달린 라이브러리 썼다<br>가 거액의 합의금 물어줌</li>
 </ul>
 </li>
 </ul>
@@ -279,19 +242,22 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/git/" rel="tag"># git</a>
               <a href="/tags/cli/" rel="tag"># cli</a>
+              <a href="/tags/vim/" rel="tag"># vim</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/01/220801_shell/" rel="prev" title="shell 기초">
+                <a href="/2022/08/01/shell-%EA%B8%B0%EC%B4%88/" rel="prev" title="shell 기초">
                   <i class="fa fa-chevron-left"></i> shell 기초
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/08/01/git-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5/" rel="next" title="git 사용 전략">
+                  git 사용 전략 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

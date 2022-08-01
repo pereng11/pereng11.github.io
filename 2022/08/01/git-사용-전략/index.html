@@ -20,29 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"pereng11.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="shell 기초기호 및 명령어 ~ 권한 없이 쓸 수 있는 최상위 폴더  @ 왼쪽은 사용자 이름, 오른쪽은 컴퓨터 이름  PWD 현재 작업중인 절대경로 출력  ls 현재 디렉토리 내의 파일 및 폴더 목록 표시  -a flag를 사용하면 숨김파일까지 출력 . 을 파일이나 폴더이름 맨 앞에 붙이면 숨김처리 됨 -l 목록 내 아이템을 한 줄에 하나씩 디테일한 정보">
+    <meta name="description" content="깃 사용 전략upstream 구분 내보내는 레포는 내 레포, 받아오는 레포는 팀장(선임, 사수 등) 레포로 설정하여사용 로컬 작업 결과를 내 레포에 push 팀장은 각 팀원의 결과를 본인 레포에 머지 공유 코드를 받아올 때는 팀장 레포에서 fetch&#x2F;pull 팀장 레포로의 push는 막아두고 사용 git remote set-url upstream.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell 기초">
-<meta property="og:url" content="https://pereng11.github.io/2022/08/01/220801_shell/index.html">
+<meta property="og:title" content="git 사용 전략">
+<meta property="og:url" content="https://pereng11.github.io/2022/08/01/git-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5/index.html">
 <meta property="og:site_name" content="Front-end Developer TIL">
-<meta property="og:description" content="shell 기초기호 및 명령어 ~ 권한 없이 쓸 수 있는 최상위 폴더  @ 왼쪽은 사용자 이름, 오른쪽은 컴퓨터 이름  PWD 현재 작업중인 절대경로 출력  ls 현재 디렉토리 내의 파일 및 폴더 목록 표시  -a flag를 사용하면 숨김파일까지 출력 . 을 파일이나 폴더이름 맨 앞에 붙이면 숨김처리 됨 -l 목록 내 아이템을 한 줄에 하나씩 디테일한 정보">
+<meta property="og:description" content="깃 사용 전략upstream 구분 내보내는 레포는 내 레포, 받아오는 레포는 팀장(선임, 사수 등) 레포로 설정하여사용 로컬 작업 결과를 내 레포에 push 팀장은 각 팀원의 결과를 본인 레포에 머지 공유 코드를 받아올 때는 팀장 레포에서 fetch&#x2F;pull 팀장 레포로의 push는 막아두고 사용 git remote set-url upstream.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-01T07:17:32.000Z">
-<meta property="article:modified_time" content="2022-08-01T08:17:02.798Z">
+<meta property="article:modified_time" content="2022-08-01T08:21:13.807Z">
 <meta property="article:author" content="Jaeyeong Son">
+<meta property="article:tag" content="git">
 <meta property="article:tag" content="cli">
-<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://pereng11.github.io/2022/08/01/220801_shell/">
+<link rel="canonical" href="https://pereng11.github.io/2022/08/01/git-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pereng11.github.io/2022/08/01/220801_shell/","path":"2022/08/01/220801_shell/","title":"shell 기초"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://pereng11.github.io/2022/08/01/git-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5/","path":"2022/08/01/git-사용-전략/","title":"git 사용 전략"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>shell 기초 | Front-end Developer TIL</title>
+<title>git 사용 전략 | Front-end Developer TIL</title>
   
 
 
@@ -110,7 +110,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell-%EA%B8%B0%EC%B4%88"><span class="nav-number">1.</span> <span class="nav-text">shell 기초</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%98%B8-%EB%B0%8F-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="nav-number">1.1.</span> <span class="nav-text">기호 및 명령어</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%83%80-%ED%8C%81"><span class="nav-number">1.2.</span> <span class="nav-text">기타 팁</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B9%83-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5"><span class="nav-number">1.</span> <span class="nav-text">깃 사용 전략</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#upstream-%EA%B5%AC%EB%B6%84"><span class="nav-number">1.1.</span> <span class="nav-text">upstream 구분</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stage%EC%9D%98-%EC%97%AD%ED%95%A0"><span class="nav-number">1.2.</span> <span class="nav-text">stage의 역할</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98"><span class="nav-number">1.3.</span> <span class="nav-text">커밋 컨벤션</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#README-md-%EC%BB%A8%EB%B2%A4%EC%85%98"><span class="nav-number">1.4.</span> <span class="nav-text">README.md 컨벤션</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore"><span class="nav-number">1.5.</span> <span class="nav-text">gitignore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push"><span class="nav-number">1.6.</span> <span class="nav-text">push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#license"><span class="nav-number">1.7.</span> <span class="nav-text">license</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -167,7 +167,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://pereng11.github.io/2022/08/01/220801_shell/">
+    <link itemprop="mainEntityOfPage" href="https://pereng11.github.io/2022/08/01/git-%EC%82%AC%EC%9A%A9-%EC%A0%84%EB%9E%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,12 +180,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="shell 기초 | Front-end Developer TIL">
+      <meta itemprop="name" content="git 사용 전략 | Front-end Developer TIL">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          shell 기초
+          git 사용 전략
         </h1>
 
         <div class="post-meta-container">
@@ -197,7 +197,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-08-01 16:17:32 / Modified: 17:17:02" itemprop="dateCreated datePublished" datetime="2022-08-01T16:17:32+09:00">2022-08-01</time>
+      <time title="Created: 2022-08-01 16:17:32 / Modified: 17:21:13" itemprop="dateCreated datePublished" datetime="2022-08-01T16:17:32+09:00">2022-08-01</time>
     </span>
 
   
@@ -210,82 +210,63 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="shell-기초"><a href="#shell-기초" class="headerlink" title="shell 기초"></a>shell 기초</h1><h2 id="기호-및-명령어"><a href="#기호-및-명령어" class="headerlink" title="기호 및 명령어"></a>기호 및 명령어</h2><ul>
-<li><p><code>~</code> 권한 없이 쓸 수 있는 최상위 폴더</p>
-</li>
-<li><p><code>@</code> 왼쪽은 사용자 이름, 오른쪽은 컴퓨터 이름</p>
-</li>
-<li><p><code>PWD</code> 현재 작업중인 절대경로 출력</p>
-</li>
-<li><p><code>ls</code> 현재 디렉토리 내의 파일 및 폴더 목록 표시</p>
-<ul>
-<li><code>-a</code> flag를 사용하면 숨김파일까지 출력</li>
-<li><code>.</code> 을 파일이나 폴더이름 맨 앞에 붙이면 숨김처리 됨</li>
-<li><code>-l</code> 목록 내 아이템을 한 줄에 하나씩 디테일한 정보 출력</li>
-<li><code>cd</code> 디렉토리 변경<ul>
-<li><code>./</code> 현재경로</li>
-<li><code>../</code> 상위 경로</li>
-<li><code>cd</code> 만 입력하거나 <code>cd ~</code> 를 입력하면 최상위 폴더로 이동</li>
-</ul>
-</li>
-<li><code>mkdir</code> 폴더 생성</li>
-</ul>
-</li>
-<li><p><code>tab 키</code> 텍스트 자동완성</p>
-</li>
-<li><p><code>touch</code> 파일 생성</p>
-</li>
-<li><p><code>mv</code> 파일 이동</p>
-<ul>
-<li><code>mv [파일 이름] [목적지]</code></li>
-<li>파일 이름에도 경로를 붙여서 사용할 수 있음</li>
-<li>이름 변경으로 응용 가능<ul>
-<li><code>mv [파일 이름] [바꿀 이름]</code></li>
+        <h1 id="깃-사용-전략"><a href="#깃-사용-전략" class="headerlink" title="깃 사용 전략"></a>깃 사용 전략</h1><h2 id="upstream-구분"><a href="#upstream-구분" class="headerlink" title="upstream 구분"></a>upstream 구분</h2><ul>
+<li>내보내는 레포는 내 레포, 받아오는 레포는 팀장(선임, 사수 등) 레포로 설정하여사<br>용<ul>
+<li>로컬 작업 결과를 내 레포에 push</li>
+<li>팀장은 각 팀원의 결과를 본인 레포에 머지</li>
+<li>공유 코드를 받아올 때는 팀장 레포에서 fetch&#x2F;pull</li>
+<li>팀장 레포로의 push는 막아두고 사용<ul>
+<li>git remote set-url upstream.push —no-push</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><code>cp</code> 파일 복사</p>
-<ul>
-<li><code>cp [파일 이름] [목적지]</code></li>
 </ul>
-</li>
-<li><p><code>rm</code> 파일 삭제</p>
-<ul>
-<li>휴지통으로 가지 않음</li>
-<li>directory는 논리적인 개념<ul>
-<li>실제로 존재하는 것이 아님</li>
-<li>따라서 그냥 삭제 불가능</li>
-<li><code>-r</code> flag를 사용해서 재귀적으로 내부의 파일과 경로를 삭제해야 함</li>
+<h2 id="stage의-역할"><a href="#stage의-역할" class="headerlink" title="stage의 역할"></a>stage의 역할</h2><ul>
+<li>작업 단위를 구분하기 위한 임시공간<ul>
+<li>커밋 기록이 섞이면 안되는 파일이나 내용을 햐</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p><code>*</code> 와일드카드</p>
-<ul>
-<li>전체 선택자<ul>
-<li>구분하여 사용 가능</li>
-<li><code>*.txt</code> , <code>server.*</code> 등</li>
+<h2 id="커밋-컨벤션"><a href="#커밋-컨벤션" class="headerlink" title="커밋 컨벤션"></a>커밋 컨벤션</h2><ul>
+<li>오픈소스 기여할 때는 영어를 사용하는 것이 필수</li>
+<li>그 외에도 가능하면 영어로 사용할 것</li>
+</ul>
+<h2 id="README-md-컨벤션"><a href="#README-md-컨벤션" class="headerlink" title="README.md 컨벤션"></a><a target="_blank" rel="noopener" href="http://readme.md/">README.md</a> 컨벤션</h2><ul>
+<li>제목 아래 서비스 한 줄 요약 필수</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ulgoon/connect-to-git/blob/main/handouts/git(1%2C2).md">https://github.com/ulgoon/connect-to-git/blob/main/handouts/git(1%2C2).md</a><br>햐</li>
+</ul>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title="gitignore"></a>gitignore</h2><ul>
+<li>실행 환경을 고려한 gitignore 파일 작성 도우미<ul>
+<li><a target="_blank" rel="noopener" href="https://www.toptal.com/developers/gitignore/">https://www.toptal.com/developers/gitignore/</a><ul>
+<li>운영체제, 에디터, 언어, 프레임워크 등 포함</li>
 </ul>
 </li>
 </ul>
 </li>
-<li></li>
-</ul>
-<h2 id="기타-팁"><a href="#기타-팁" class="headerlink" title="기타 팁"></a>기타 팁</h2><ul>
-<li>단어를 적확하게 사용할 것<ul>
-<li>remove 논리적 삭제<ul>
-<li>레퍼런스만 지우고 메모리를 차지</li>
-</ul>
-</li>
-<li>delete 물리적 삭제</li>
-<li>copy &#x2F; duplicate &#x2F; clone<ul>
-<li>copy: 사본을 기본적으로 다른 경로에 복사<ul>
-<li>이름 바꾸면 같은 경로에도 사용 가능</li>
+<li>DS_Store &#x2F; thumbs.db<ul>
+<li>맥과 윈도우의 캐시 파일. 깃헙에 올라가면 멋없음</li>
 </ul>
 </li>
 </ul>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><ul>
+<li>push 가능한 자주 하지 말 것<ul>
+<li>실수 되돌리기 어려움</li>
+</ul>
 </li>
+</ul>
+<h2 id="license"><a href="#license" class="headerlink" title="license"></a>license</h2><ul>
+<li>오픈 소스 작업 시 특히 중요<ul>
+<li>사용자에게 주는 신뢰감</li>
+<li>저작권 이슈</li>
+</ul>
+</li>
+<li>GPL 라이센스는 특히 조심해야 함<ul>
+<li>다른 라이센스를 덮어씌움<ul>
+<li>GPL 라이센스인 라이브러리를 사용할 경우 프로젝트 전체가 GPL 라이센스를따라<br>야 함</li>
+</ul>
+</li>
+<li>최근 한글과 컴퓨터에서 PDF 내보내기 기능에 GPL 라이센스 달린 라이브러리 썼다<br>가 거액의 합의금 물어줌</li>
 </ul>
 </li>
 </ul>
@@ -298,22 +279,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
               <a href="/tags/cli/" rel="tag"># cli</a>
-              <a href="/tags/shell/" rel="tag"># shell</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/01/220801_vim/" rel="prev" title="vim 기초">
+                <a href="/2022/08/01/vim-%EA%B8%B0%EC%B4%88/" rel="prev" title="vim 기초">
                   <i class="fa fa-chevron-left"></i> vim 기초
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/01/220801_git/" rel="next" title="git 사용 전략">
-                  git 사용 전략 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
